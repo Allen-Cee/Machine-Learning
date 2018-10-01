@@ -2,7 +2,11 @@
 
 Notes by Allen Cee
 
+  
+
 ## Lecture 01 机器学习简介
+
+  
 
 ### 机器学习算法 Machine learning algorithms
 
@@ -15,6 +19,8 @@ Notes by Allen Cee
 
 - Reinforcement learning 强化学习
 - Recommender systems 推荐系统
+
+  
 
 ### 监督学习 Supervised Learning
 
@@ -33,6 +39,8 @@ Notes by Allen Cee
 
 * 学习算法能够处理无穷多的属性（支持向量机 Support Vector）
 
+  
+
 ### 无监督学习 Unsupervised Learning
 
 1. 无监督学习：数据集中所有数据是一样的、没有属性，通过算法，找到某种结构（如谷歌新闻分类、特定基因判定）【个人感觉和主成分分析、因子正则化比较像】
@@ -45,7 +53,11 @@ Notes by Allen Cee
 * 鸡尾酒宴会问题 Cocktail Party Problem：不同音源如何区分；有鸡尾酒算法
 * Octave常用来开发程序原型，因为内置了很多学习算法，如`svd()`奇艺值分解
 
+  
+
 ## Lecture 02 模型基础
+
+  
 
 ### 模型表示 Model Representation
 
@@ -53,13 +65,13 @@ Notes by Allen Cee
 
 ![01-05](01-05.png)
 
-
+  
 
 * 训练集 Training Set：监督学习中已知的数据集 [Fig 01-06]
 
   ![01-06](01-06.png)
 
-
+  
 
 **机器学习中常见表示**
 
@@ -75,6 +87,7 @@ Notes by Allen Cee
 
   ![01-07](01-07.png) 
 
+    
 
 ### 成本函数 Cost Function
 
