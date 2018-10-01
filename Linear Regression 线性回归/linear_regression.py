@@ -11,14 +11,14 @@ def plot_data(x_coord, y_coord, y_hat, corr):
 	plt.title('Data')
 	plt.xlabel('x\n')
 	plt.ylabel('y')
-	#plt.show()
+	plt.show()
 
 def reg_data(x_array, y_array):
 	x_mat = np.mat(x_array)
 	y_mat = np.mat(y_array).T
 	b_mat = (x_mat.T*x_mat).I*(x_mat.T*y_mat)
 	y_hat = (x_mat*b_mat).flatten().A[0]
-	#corr = np.corrcoef(y_hat.T, y_mat.T)
+	corr = np.corrcoef(y_hat.T, y_mat.T)
 	plot_data(x_mat[:,1].flatten().A[0], y_mat.flatten().A[0], y_hat, corr)
 
 def init_data(df):
@@ -31,6 +31,8 @@ def init_data(df):
 	reg_data(x_array, y_array)
 
 if __name__ == '__main__':
+	#d = 
+
 	data = pd.read_csv('data.txt', header = None, sep = '\t')
 	df = pd.DataFrame(data)
 	init_data(df)
