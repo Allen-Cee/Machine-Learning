@@ -1,4 +1,4 @@
-#机器学习 Machine Learning by Andrew Ng
+## 机器学习 Machine Learning by Andrew Ng
 
 
 
@@ -6,11 +6,11 @@ Notes by Allen Cee
 
 
 
-##Lecture 01 机器学习简介
+## Lecture 01 机器学习简介
 
 
 
-####机器学习算法 Machine learning algorithms
+#### 机器学习算法 Machine learning algorithms
 
 **常见算法**
 
@@ -24,7 +24,7 @@ Notes by Allen Cee
 
 
 
-####监督学习 Supervised Learning
+#### 监督学习 Supervised Learning
 
 1. 监督学习：已知部分数据集，给出算法，预测新数据
 
@@ -57,11 +57,11 @@ Notes by Allen Cee
 
 
 
-##Lecture 02 模型基础
+## Lecture 02 模型基础
 
 
 
-####模型表示 Model Representation
+#### 模型表示 Model Representation
 
 [Eg 01-01: Housing Prices] & [Fig 01-05]
 
