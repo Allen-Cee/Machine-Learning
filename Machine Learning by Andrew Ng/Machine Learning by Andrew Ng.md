@@ -246,3 +246,52 @@ Notes by Allen Cee
 
 ### 分类 Classification
 
+* 标记为0的类为负类negtive class；标记为1的类为正类positive class；一般红叉表示正类，蓝圈表示负类
+* 分为二元分类问题binary classification problems和多元分类问题multiclass classification problems [Fig 06-01]
+* 为什么不用线性回归：对异常点的处理差；回产生大于1和小于0的值，在解释上比较无意义 [Fig 06-02]
+
+### 逻辑回归的假设函数 Hypothesis Representation
+
+* 类似线性回归假设函数$h(x) = \theta^Tx$，稍作改变为$h(x) = g(\theta^T x)$，其中$g(z)=\frac{1}{1+e^{-z}}$即S型函数sigmoid function/logistic function [Fig 06-03]
+* 这里的假设函数给出的是给定$x$和$\theta$的概率，正类
+
+### 分类的决策边界 Decision Boundary
+
+* 即线性函数$z = \theta^T x$；当$z\geq0$的时候，$g(z)\geq 0.5$，$h(x)$取1，分为正类
+
+### 逻辑回归的成本函数 Cost Function
+
+* 相比线性回归的成本函数，逻辑回归的代价函数保留了样本数量的均值化，即$J(\theta)=\frac{1}{m}cost\ function$，其中$cost(h, y)=\frac{1}{2}(h-y)^2$，但在逻辑回归里面这样会产生非凸函数non-convex function，不利于梯度下降 [Fig 06-04]
+* 所做的改变是对假设函数取对数，消减指数及倒数的影响，得到逻辑回归成本函数$cost(h, y)=\begin{cases}  -\log(h(x)) \quad if \ y = 1\\ -\log(1-h(x)) \quad if\ y=0 \end{cases}$ [Fig 06-05]
+* 逻辑回归的成本函数通过统计学的极大似然法the principle of maximum likelihood得到
+
+**逻辑回归成本函数的直观理解【通过y->h(x)->cost(h, y)的连结，会出现当h接近y的时候cost接近0，背离的时候cost接近无穷大的结果】** [Fig 06-06] & [Fig 06-07] & [Fig 06-08]
+
+* 代价函数可以优化为$cost(h, y)=-y\log(h(x))-(1-y)(1-h(x))$ [Fig 06-09] 
+
+### 逻辑回归中梯度下降的应用
+
+* 对代价函数求偏导，迭代即可 [Fig 06-10]
+* 逻辑回归梯度下降的迭代公式和线性回归很相似，只是假设函数的内涵不同 [Fig 06-11]
+* 注意应用使梯度下降结果收敛的方法，以及通过特征缩放提高梯度下降效率
+
+### 高级优化 Advanced Optimization
+
+* 重要的是代价函数的式子和偏导数的求解式，解决这两部分后除梯度下降还有很多优化算法pptimization algorithm可以使用，如共轭梯度法Conjugate Gradient、变尺度法BFGS和限制变尺度法L-BFGS，这些算法通常无需选择学习速率、计算速度更快，同时也更复杂 [Fig 06-12]
+
+* 建议直接使用软件库，无需理解高级算法内涵；使用库也要比较不同库的区别，找到一个实现表现好的库
+
+* octave实现：
+
+  ```octave
+  function [jVal, gradient] = costFunction(theta)
+  jVal = ... % cost function
+  gradient = zeros(n+1, 1) % vector of theta
+  gradient(i) = ...
+  ```
+
+  然后使用高级优化算法`fminunc()`，该函数会自动选择学习算法（如果选择梯度下降也会自动选择学习速率）；注意该函数的theta至少是二维向量 [Fig 06-13]
+
+### 多元分类：一对多算法 Multi-class Classification: One-VS-All Algorithm
+
+* 一对多算法：通过创建伪训练集，将多元分类问题转化为多个二元分类问题，具体样本的分类结果取可信度最大的一个【？】 [Fig 06-14] & [Fig 06-15]
